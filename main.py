@@ -1,6 +1,7 @@
 from plugins.light_model import LightModelPlugin
+from core.orchestrator import run_pipeline
 
-plugin = LightModelPlugin()
-plugin.load_model()
-output = plugin.run("sample data")
-print(output)
+if __name__ == "__main__":
+    input_data = "Hello from main"
+    result = run_pipeline(input_data)
+    print("Result:", result)
