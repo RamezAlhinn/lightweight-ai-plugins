@@ -28,26 +28,8 @@ This project aims to enable intelligent, energy-efficient AI deployment through 
 - **Plugin Handling**: `importlib`, dynamic loading, hot-swapping
 - **Packaging**: `setuptools`, Docker (optional)
 
-```mermaid
-sequenceDiagram
-    participant App as Client App
-    participant Orc as Orchestrator
-    participant RS as Resource Selector
-    participant PM as Plugin Manager
-    participant Mon as System Monitors
-    participant Pl as Selected Plugin
-
-    App->>Orc: Submit task (input payload)
-    Orc->>RS: Request resource profile
-    RS->>Mon: Sample CPU/RAM/GPU/Battery
-    Mon-->>RS: Resource metrics
-    RS-->>Orc: Selection recommendation (light/med/heavy)
-    Orc->>PM: Load plugin (per selection)
-    PM-->>Orc: Plugin handle
-    Orc->>Pl: Execute inference
-    Pl-->>Orc: Result + metrics
-    Orc-->>App: Response
-    Note over Orc: Log decision & metrics
+```markdown
+   ![Architecture Sequence](Images/sequenceDiagram.png)
 
 ## 📄 License
 
