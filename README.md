@@ -28,7 +28,8 @@ This project aims to enable intelligent, energy-efficient AI deployment through 
 - **Plugin Handling**: `importlib`, dynamic loading, hot-swapping
 - **Packaging**: `setuptools`, Docker (optional)
 
-```markdown
+## Architecture — Sequence View
+
    ![Architecture Sequence](Images/sequenceDiagram.png)
 
 ## 📄 License
