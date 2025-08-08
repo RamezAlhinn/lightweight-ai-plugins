@@ -29,8 +29,8 @@ This project aims to enable intelligent, energy-efficient AI deployment through 
 - **Packaging**: `setuptools`, Docker (optional)
 
 ```markdown
-   ![Architecture Sequence](/Users/User/lightweight-ai-plugins/Images)
-   
+   ![Architecture Sequence](/Users/User/lightweight-ai-plugins/Images/sequenceDiagram.png)
+
 ## 📄 License
 
 MIT License
