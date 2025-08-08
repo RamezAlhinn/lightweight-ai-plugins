@@ -28,6 +28,9 @@ This project aims to enable intelligent, energy-efficient AI deployment through 
 - **Plugin Handling**: `importlib`, dynamic loading, hot-swapping
 - **Packaging**: `setuptools`, Docker (optional)
 
+```markdown
+   ![Architecture Sequence](/Users/User/lightweight-ai-plugins/Images)
+   
 ## 📄 License
 
 MIT License
