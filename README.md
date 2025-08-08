@@ -28,6 +28,23 @@ This project aims to enable intelligent, energy-efficient AI deployment through 
 - **Plugin Handling**: `importlib`, dynamic loading, hot-swapping
 - **Packaging**: `setuptools`, Docker (optional)
 
+## Architecture — Sequence View
+
+   ![Architecture Sequence](Images/sequenceDiagram.png)
+
+## Routing Flowchart
+
+Below is the decision process the orchestrator uses to pick the best model
+based on system resources and defined thresholds.
+
+![Routing Flowchart](Images/flowDiagram.png)
+
+**Thresholds (v1):**
+- Battery below 30% → Light Model
+- RAM under 2 GB → Light Model
+- CPU load above 80% → Light Model
+- GPU available + sufficient resources → Heavy Model, otherwise Medium Model
+
 ## 📄 License
 
 MIT License
