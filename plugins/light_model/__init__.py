@@ -1,9 +1,8 @@
 from interfaces.plugin_interface import PluginInterface
 
-class LightModelPlugin(PluginInterface):
-    def load_model(self):
-        print("Light model loaded (dummy).")
-
-    def run(self, input_data):
-        print(f"Running light model on input: {input_data}")
-        return "output"
+class ModelPlugin:
+    def __init__(self):
+        self.name = "Light Model"
+        # Load pre-trained model here (e.g., TFLite interpreter)
+    def predict(self, input_data):
+        return "Predicted: light result"
