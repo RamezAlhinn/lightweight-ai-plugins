@@ -1,0 +1,22 @@
+# Core dependencies for the Lightweight AI Plugin Framework
+
+# System monitoring
+psutil>=5.9.0
+
+# AI Runtime libraries
+# Note: These are optional depending on which models you use
+# Uncomment as needed for your specific use case
+
+# For ONNX model support (heavy models)
+# onnxruntime>=1.15.0
+
+# For TensorFlow Lite support (medium models)
+# tensorflow==2.13.0
+# Note: Use tensorflow-lite if available for your platform
+
+# For PyTorch support (light models)
+# torch>=2.0.0
+
+# Utilities
+typing-extensions>=4.5.0  # Better type hints for Python 3.8+
+pyyaml>=6.0               # Configuration file support

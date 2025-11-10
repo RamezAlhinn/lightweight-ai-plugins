@@ -1,0 +1,80 @@
+# Configuration file for the Lightweight AI Plugin Framework
+#
+# This file demonstrates configuration management best practices
+# and allows students to customize system behavior without code changes.
+
+# Resource Selection Thresholds
+# These values control when the system switches between light/medium/heavy models
+thresholds:
+  # Battery level below which to use light model (%)
+  battery_low_percent: 30.0
+
+  # Minimum available RAM to run any model (GB)
+  ram_minimum_gb: 2.0
+
+  # CPU usage above which to use light model (%)
+  cpu_high_percent: 80.0
+
+  # Minimum RAM needed for heavy model (GB)
+  ram_heavy_model_gb: 4.0
+
+# Model Configuration
+# Paths to model files for each plugin type
+models:
+  light:
+    path: "models/light.pt"
+    description: "Lightweight model for resource-constrained environments"
+    estimated_memory_mb: 50
+
+  medium:
+    path: "models/medium.tflite"
+    description: "Medium model for balanced performance"
+    estimated_memory_mb: 150
+
+  heavy:
+    path: "models/heavy.onnx"
+    description: "Heavy model for maximum accuracy"
+    estimated_memory_mb: 500
+
+# Logging Configuration
+logging:
+  # Default log level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+
+  # Log file path (null for no file logging)
+  file: null
+
+  # Log to console
+  console: true
+
+  # Log format
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Plugin Configuration
+plugins:
+  # Enable plugin caching for better performance
+  enable_cache: true
+
+  # Plugin discovery paths (for future extensibility)
+  search_paths:
+    - "plugins"
+
+# System Monitoring
+monitoring:
+  # How often to check system resources (seconds)
+  # Set to 0 to check on every inference
+  check_interval: 0
+
+  # Enable GPU detection
+  enable_gpu_detection: true
+
+# Application Settings
+application:
+  # Application name
+  name: "Lightweight AI Plugin Framework"
+
+  # Version
+  version: "1.0.0"
+
+  # Enable verbose output
+  verbose: false
