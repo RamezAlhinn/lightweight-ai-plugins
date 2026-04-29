@@ -1,55 +1,89 @@
+<div align="center">
+
 # Lightweight AI Plugin Framework
 
-A modular, resource-aware AI runtime designed to run lightweight models efficiently on edge devices. This framework dynamically selects and loads the most suitable AI plugin based on system resource availability such as CPU, memory, and battery level.
+> **Resource-aware AI runtime for edge devices**
 
-## 💡 Purpose
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat&logo=python&logoColor=white)]()
+[![License](https://img.shields.io/badge/License-MIT-blue)]()
+[![Platform](https://img.shields.io/badge/Platform-Linux%20|%20Windows%20|%20Android-lightgrey)]()
+[![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen)]()
 
-This project aims to enable intelligent, energy-efficient AI deployment through an abstract plugin-based system that adapts at runtime. It’s built for flexibility, cross-platform compatibility, and integration with various AI backends.
+</div>
 
-## 🧠 Core Concepts
+A modular, resource-aware AI runtime that dynamically selects the optimal model for your device based on real-time CPU, memory, and battery levels.
 
-- **Plugin-Based AI**: Each AI function is encapsulated as a plugin with multiple model variants (e.g., light, medium, heavy).
-- **Resource-Aware Switching**: Automatically selects the optimal plugin based on real-time system stats.
-- **Modular & Abstract**: Clean interfaces and separation of concerns to support scalability and testing.
-- **Cross-Platform**: Designed to support Linux, Windows, and Android-based edge systems.
+---
 
-## 🏗️ Architecture Overview
+## 🎯 Why?
 
-- **Core Layer**: Orchestrates plugin management, resource monitoring, and decision logic.
-- **Plugin Layer**: Individual AI models implementing a shared interface (e.g., object detection with varying complexity).
-- **System Layer**: Platform-specific modules to monitor system performance and power metrics.
-- **Interfaces**: Abstract base classes defining contracts for plugins and monitors.
+Edge devices have **limited and fluctuating resources**. This framework solves that by:
 
-## 🧰 Initial Tech Stack
+- **Auto-switching** between light / medium / heavy models based on system load
+- **Hot-swapping** plugins at runtime without restart
+- **Cross-platform** — Linux, Windows, Android
 
-- **Language**: Python (initial), with future support for C++ for embedded targets
-- **AI Runtimes**: ONNX Runtime, TensorFlow Lite, PyTorch (optional)
-- **Monitoring**: `psutil`, `/proc` (Linux), platform APIs (Windows, Android)
-- **Plugin Handling**: `importlib`, dynamic loading, hot-swapping
-- **Packaging**: `setuptools`, Docker (optional)
+---
 
-## Architecture — Sequence View
+## 🚀 Quick Start
 
-   ![Architecture Sequence](Images/sequenceDiagram.png)
+```bash
+pip install -r requirements.txt
+python main.py
+```
 
-## Routing Flowchart
+That's it. The orchestrator monitors your system and selects the right model automatically.
 
-Below is the decision process the orchestrator uses to pick the best model
-based on system resources and defined thresholds.
+---
 
+## 🏗️ Architecture
+
+![Sequence Diagram](Images/sequenceDiagram.png)
 ![Routing Flowchart](Images/flowDiagram.png)
 
-**Thresholds (v1):**
-- Battery below 30% → Light Model
-- RAM under 2 GB → Light Model
-- CPU load above 80% → Light Model
-- GPU available + sufficient resources → Heavy Model, otherwise Medium Model
+```
+Core Layer     → Plugin management, decision logic
+Plugin Layer   → Individual AI models (light/medium/heavy)
+System Layer   → Platform-specific resource monitoring
+Interfaces     → Abstract contracts for plugins & monitors
+```
 
-## 📄 License
+### Decision Logic
 
-MIT License
+| Condition | Selected Model |
+|-----------|---------------|
+| Battery < 30% | Light |
+| RAM < 2 GB | Light |
+| CPU load > 80% | Light |
+| GPU available + sufficient resources | Heavy |
+| Otherwise | Medium |
 
-## 🤝 Contributions
+---
 
-Open to contributions, ideas, or collaborations—especially on model optimization, multi-platform support, and performance tuning.
+## 🛠️ Tech Stack
 
+**Python** — ONNX Runtime · TensorFlow Lite · PyTorch  
+**System** — `psutil`, platform APIs, `/proc`  
+**Packaging** — setuptools, Docker
+
+---
+
+## 📁 Project Structure
+
+```
+├── core/          # Orchestrator & plugin management
+├── plugins/       # AI model plugins (light/medium/heavy)
+├── models/        # Model definitions & interfaces
+├── interfaces/    # Abstract base classes
+├── system/        # Resource monitoring
+├── utils/         # Helpers
+├── main.py        # Entry point
+├── Images/        # Architecture diagrams
+└── requirements.txt
+```
+
+---
+
+## 📜 License
+
+MIT — open for collaboration. PRs welcome, especially on model optimization and multi-platform support.
